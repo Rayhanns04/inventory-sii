@@ -20,10 +20,10 @@ module.exports = {
             // Customize the color only. (optional)
             color:theme => ({
                 color: colors['purple-dark'],
-    linkFirst: 'mr-6 border rounded',
-    linkSecond: 'rounded-l border-l',
-    linkBeforeLast: 'rounded-r border-r',
-    linkLast: 'ml-6 border rounded',
+                linkFirst: 'mr-6 border rounded',
+                linkSecond: 'rounded-l border-l',
+                linkBeforeLast: 'rounded-r border-r',
+                linkLast: 'ml-6 border rounded',
             }),
 
             // Customize styling using @apply. (optional)
@@ -99,6 +99,9 @@ module.exports = {
                 1.5: 1.5,
                 2.5: 2.5,
             },
+            width: {
+                150: "150px"
+            }
         },
     },
     variants: {

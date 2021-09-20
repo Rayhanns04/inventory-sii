@@ -28,7 +28,9 @@ class PageController extends Controller
 
         $report = Report::all()->groupBy(function ($item) {
             return $item->created_at->format('d F Y');
-        })->where('created_at');
+        })->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()]);
+
+        // ->where('created_at');
 
         $test = [];
         foreach ($conditions as $condition) {

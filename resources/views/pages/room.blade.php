@@ -126,13 +126,6 @@
                     <i class="w-4 h-4 absolute my-auto inset-y-0 mr-3 right-0" data-feather="search"></i>
                 </div>
             </div>
-            <select class="w-20 form-select box mt-3 sm:mt-0">
-                <option>10 Items per Page</option>
-                <option>25 Items per Page</option>
-                <option>35 Items per Page</option>
-                <option>50 Items per Page</option>
-                <option>100 Items per Page</option>
-            </select>
             <a href="" class="tooltip btn btn-link box shadow-md ml-1" title="Reset All Filter">
                 <i class="w-5 h-5" data-feather="refresh-cw"></i>
             </a>
@@ -153,6 +146,11 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @if ($rooms->count() <= 0)
+                        <tr>
+                            <td colspan="6" class="h2 p-4 text-center m-0">Belum ada data!</td>
+                        </tr>
+                    @endif
                     @foreach ($rooms as $room)
                         <tr class="intro-x">
                             <td class="w-10 text-center">

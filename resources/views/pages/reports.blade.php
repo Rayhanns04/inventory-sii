@@ -128,6 +128,11 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @if ($reports->count() <= 0)
+                        <tr>
+                            <td colspan="6" class="h2 p-4 text-center m-0">Belum ada data!</td>
+                        </tr>
+                    @endif
                     @foreach ($reports as $key => $report)
                         <tr>
                             <td class="w-10 text-center">

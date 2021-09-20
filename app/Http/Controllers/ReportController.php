@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ReportOfWeekExport;
 use App\Models\Condition;
 use App\Models\Report;
 use App\Models\Stuff;
@@ -9,8 +10,9 @@ use App\Models\Room;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class ReportController extends Controller
 {
@@ -106,5 +108,22 @@ class ReportController extends Controller
         $report->update();
 
         return back()->with('status', 'Success delete report!');
+    }
+
+    public function recapOfWeek()
+    {
+        $TITLE = "Report";
+        $ACTION = "/reports/floors";
+        $stuffs = Stuff::all();
+        $conditions = Condition::all();
+
+        $reports = Report::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();
+
+        return view('pages.reports.recapofweek', compact('conditions', 'reports', 'TITLE', 'ACTION', 'stuffs'));
+    }
+
+    public function Export()
+    {
+        return Excel::download(new ReportOfWeekExport, 'Template - Report of Week.xlsx');
     }
 }

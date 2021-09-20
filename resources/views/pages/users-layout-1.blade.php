@@ -23,14 +23,17 @@
                 <div class="box">
                     <div class="flex flex-col lg:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
                         <div class="w-24 h-24 lg:w-12 lg:h-12 image-fit lg:mr-1">
-                            <img alt="Midone Tailwind HTML Admin Template" class="rounded-full" src="{{ asset('dist/images/' . $faker['photos'][0]) }}">
+                            <img alt="Midone Tailwind HTML Admin Template" class="rounded-full"
+                                src="{{ asset('dist/images/' . $faker['photos'][0]) }}">
                         </div>
                         <div class="lg:ml-2 lg:mr-auto text-center lg:text-left mt-3 lg:mt-0">
-                            <a href="" class="font-medium">{{ $faker['users'][0]['name'] }}</a>
-                            <div class="text-gray-600 text-xs mt-0.5">{{ $faker['jobs'][0] }}</div>
+                            <a href="" class="font-medium">{{ auth()->user()->name }}</a>
+                            <div class="text-gray-600 text-xs mt-0.5">Admin</div>
                         </div>
                         <div class="flex ml-2 lg:ml-0 lg:justify-end mt-3 lg:mt-0">
-                            <a href="" class="w-8 h-8 rounded flex items-center justify-center bg-red-500 dark:bg-red-400 border-red-600 ml-2 text-white zoom-in tooltip" title="Delete">
+                            <a href=""
+                                class="w-8 h-8 rounded flex items-center justify-center bg-red-500 dark:bg-red-400 border-red-600 ml-2 text-white zoom-in tooltip"
+                                title="Delete">
                                 <i class="w-3 h-3 fill-current" data-feather="trash"></i>
                             </a>
                         </div>

@@ -70,6 +70,12 @@ Route::middleware('auth')->group(function () {
         });
     });
 
+    Route::prefix('/recapOfWeek')->group(function () {
+        Route::get('/', [ReportController::class, 'recapOfWeek']);
+    });
+
+    Route::get('/recap-of-week-export', [ReportController::class, 'Export']);
+
     // Non
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/', [PageController::class, 'dashboardOverview1'])->name('dashboard-overview-1');

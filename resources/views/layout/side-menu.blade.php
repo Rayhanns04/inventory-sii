@@ -32,10 +32,10 @@
                 <li>
                     <a class="side-menu @if (request()->is('settings/*')) side-menu--active @endif">
                         <div class="side-menu__icon">
-                            <i data-feather="file-text"></i>
+                            <i data-feather="tool"></i>
                         </div>
                         <div class="side-menu__title">
-                            Settings
+                            Pengaturan
                             <div class="side-menu__sub-icon">
                                 <i data-feather="chevron-down"></i>
                             </div>
@@ -47,10 +47,10 @@
                             <a href="/settings/floors"
                                 class="{{ request()->is('settings/floors') ? 'side-menu side-menu--active' : 'side-menu' }}">
                                 <div class="side-menu__icon">
-                                    <i data-feather="maximize"></i>
+                                    <i data-feather="layers"></i>
                                 </div>
                                 <div class="side-menu__title">
-                                    Floor
+                                    Lantai
                                 </div>
                             </a>
                         </li>
@@ -61,7 +61,7 @@
                                     <i data-feather="activity"></i>
                                 </div>
                                 <div class="side-menu__title">
-                                    Condition
+                                    Kondisi Barang
                                 </div>
                             </a>
                         </li>
@@ -69,10 +69,10 @@
                             <a href="/settings/rooms"
                                 class="{{ request()->is('settings/rooms') ? 'side-menu side-menu--active' : 'side-menu' }}">
                                 <div class="side-menu__icon">
-                                    <i data-feather="cloud"></i>
+                                    <i data-feather="maximize"></i>
                                 </div>
                                 <div class="side-menu__title">
-                                    Rooms
+                                    Ruangan
                                 </div>
                             </a>
                         </li>
@@ -83,7 +83,7 @@
                                     <i data-feather="package"></i>
                                 </div>
                                 <div class="side-menu__title">
-                                    Stuffs
+                                    Barang
                                 </div>
                             </a>
                         </li>
@@ -115,7 +115,7 @@
                                 <li>
                                     <a class="side-menu @if (request()->is('reports/*')) side-menu--active @endif">
                                         <div class="side-menu__icon">
-                                            <i data-feather="file-text"></i>
+                                            <i data-feather="layers"></i>
                                         </div>
                                         <div class="side-menu__title">
                                             {{ $floor->name }}
@@ -148,6 +148,16 @@
                     </ul>
                 </li>
 
+                <li>
+                    <a href="/recapOfWeek" class="side-menu @if (request()->is('/recapOfWeek')) side-menu--active @endif">
+                        <div class="side-menu__icon">
+                            <i data-feather="bookmark"></i>
+                        </div>
+                        <div class="side-menu__title">
+                            Recap perMinggu
+                        </div>
+                    </a>
+                </li>
             </ul>
 
         </nav>
