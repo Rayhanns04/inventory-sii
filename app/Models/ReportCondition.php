@@ -11,4 +11,9 @@ class ReportCondition extends Model
 
     protected $fillable = ['report_id', 'condition_id', 'quantity'];
     public $timestamps = false;
+
+    public function report()
+    {
+        return $this->belongsTo(Report::class);
+    }
 }

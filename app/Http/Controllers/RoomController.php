@@ -14,9 +14,9 @@ class RoomController extends Controller
         $floors = Floor::all();
 
         if ($request->has('search')) {
-            $rooms = Room::where('name', 'LIKE', '%' . $request->search . '%')->paginate(50);
+            $rooms = Room::where('name', 'LIKE', '%' . $request->search . '%')->paginate(100000);
         } else {
-            $rooms = Room::paginate(20);
+            $rooms = Room::paginate(100000);
         }
 
         // Custome Variable

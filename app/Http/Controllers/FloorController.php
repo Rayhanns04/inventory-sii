@@ -17,9 +17,9 @@ class FloorController extends Controller
     public function index(Request $request)
     {
         if ($request->has('search')) {
-            $floors = Floor::where('name', 'LIKE', '%' . $request->search . '%')->paginate(50);
+            $floors = Floor::where('name', 'LIKE', '%' . $request->search . '%')->paginate(100000);
         } else {
-            $floors = Floor::paginate(20);
+            $floors = Floor::paginate(100000);
         }
 
         // Custome Variable

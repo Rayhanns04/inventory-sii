@@ -1,6 +1,11 @@
 const primaryColors = require("@left4code/tw-starter/dist/js/colors");
 
 module.exports = {
+    plugins: [
+        require('tailwindcss-plugins/pagination')({
+            /* Customizations here... */
+        }),
+    ],
     purge: [
         "./src/**/*.php",
         "./src/**/*.html",
@@ -11,6 +16,26 @@ module.exports = {
     ],
     darkMode: "class",
     theme: {
+        pagination: theme => ({
+            // Customize the color only. (optional)
+            color:theme => ({
+                color: colors['purple-dark'],
+    linkFirst: 'mr-6 border rounded',
+    linkSecond: 'rounded-l border-l',
+    linkBeforeLast: 'rounded-r border-r',
+    linkLast: 'ml-6 border rounded',
+            }),
+
+            // Customize styling using @apply. (optional)
+            wrapper: 'flex justify-center list-reset',
+
+            // Customize styling using CSS-in-JS. (optional)
+            wrapper: {
+                'display': 'flex',
+                'justify-items': 'center',
+                '@apply list-reset': {},
+            },
+        }),
         borderColor: (theme) => ({
             ...theme("colors"),
             DEFAULT: primaryColors.gray["300"],

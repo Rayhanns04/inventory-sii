@@ -95,9 +95,6 @@
     <h2 class="intro-y text-lg font-medium mt-10">{{ $TITLE }}</h2>
     <div class="grid grid-cols-12 gap-6 mt-5">
         <div class="intro-y col-span-12 flex flex-wrap sm:flex-nowrap items-center mt-2">
-            <button class="tooltip btn btn-primary shadow-md mr-2" title="Filter Stuff">
-                <i class="w-4 h-4" data-feather="filter"></i>
-            </button>
             <button class="tooltip btn btn-outline-primary shadow-md mr-2" title="Import Stuff">
                 <i class="w-4 h-4" data-feather="upload"></i>
             </button>
@@ -125,7 +122,8 @@
             </div>
             <div class="w-full sm:w-auto mt-3 sm:mt-0 sm:ml-auto md:ml-0 mr-1">
                 <div class="w-56 relative text-gray-700 dark:text-gray-300">
-                    <input type="text" class="form-control w-56 box pr-10 placeholder-theme-13" placeholder="Search...">
+                    <input type="search" name="search" class="form-control w-56 box pr-10 placeholder-theme-13"
+                        placeholder="Search...">
                     <i class="w-4 h-4 absolute my-auto inset-y-0 mr-3 right-0" data-feather="search"></i>
                 </div>
             </div>
@@ -190,45 +188,7 @@
         <!-- END: Data List -->
 
         <!-- BEGIN: Pagination -->
-        <div class="intro-y col-span-12 flex flex-wrap sm:flex-row sm:flex-nowrap items-center">
-            <ul class="pagination">
-                <li>
-                    <a class="pagination__link" href="">
-                        <i class="w-4 h-4" data-feather="chevrons-left"></i>
-                    </a>
-                </li>
-                <li>
-                    <a class="pagination__link" href="">
-                        <i class="w-4 h-4" data-feather="chevron-left"></i>
-                    </a>
-                </li>
-                <li>
-                    <a class="pagination__link" href="">...</a>
-                </li>
-                <li>
-                    <a class="pagination__link" href="">1</a>
-                </li>
-                <li>
-                    <a class="pagination__link pagination__link--active" href="">2</a>
-                </li>
-                <li>
-                    <a class="pagination__link" href="">3</a>
-                </li>
-                <li>
-                    <a class="pagination__link" href="">...</a>
-                </li>
-                <li>
-                    <a class="pagination__link" href="">
-                        <i class="w-4 h-4" data-feather="chevron-right"></i>
-                    </a>
-                </li>
-                <li>
-                    <a class="pagination__link" href="">
-                        <i class="w-4 h-4" data-feather="chevrons-right"></i>
-                    </a>
-                </li>
-            </ul>
-        </div>
+        {{-- {{ $stuffs->links() }} --}}
         <!-- END: Pagination -->
     </div>
 

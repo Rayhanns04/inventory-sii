@@ -77,9 +77,6 @@
     <h2 class="intro-y text-lg font-medium mt-10">{{ $TITLE }}</h2>
     <div class="grid grid-cols-12 gap-6 mt-5">
         <div class="intro-y col-span-12 flex flex-wrap sm:flex-nowrap items-center mt-2">
-            <button class="tooltip btn btn-primary shadow-md mr-2" title="Filter Condition">
-                <i class="w-4 h-4" data-feather="filter"></i>
-            </button>
             <button class="tooltip btn btn-outline-primary shadow-md mr-2" title="Import Condition">
                 <i class="w-4 h-4" data-feather="upload"></i>
             </button>
@@ -168,45 +165,6 @@
         <!-- END: Data List -->
 
         <!-- BEGIN: Pagination -->
-        <div class="intro-y col-span-12 flex flex-wrap sm:flex-row sm:flex-nowrap items-center">
-            <ul class="pagination">
-                <li>
-                    <a class="pagination__link" href="">
-                        <i class="w-4 h-4" data-feather="chevrons-left"></i>
-                    </a>
-                </li>
-                <li>
-                    <a class="pagination__link" href="">
-                        <i class="w-4 h-4" data-feather="chevron-left"></i>
-                    </a>
-                </li>
-                <li>
-                    <a class="pagination__link" href="">...</a>
-                </li>
-                <li>
-                    <a class="pagination__link" href="">1</a>
-                </li>
-                <li>
-                    <a class="pagination__link pagination__link--active" href="">2</a>
-                </li>
-                <li>
-                    <a class="pagination__link" href="">3</a>
-                </li>
-                <li>
-                    <a class="pagination__link" href="">...</a>
-                </li>
-                <li>
-                    <a class="pagination__link" href="">
-                        <i class="w-4 h-4" data-feather="chevron-right"></i>
-                    </a>
-                </li>
-                <li>
-                    <a class="pagination__link" href="">
-                        <i class="w-4 h-4" data-feather="chevrons-right"></i>
-                    </a>
-                </li>
-            </ul>
-        </div>
         <!-- END: Pagination -->
     </div>
 

@@ -18,4 +18,9 @@ class Room extends Model
     {
         return $this->hasMany(Stuff::class);
     }
+
+    public function reports()
+    {
+        return $this->hasOneThrough(Report::class, Stuff::class);
+    }
 }

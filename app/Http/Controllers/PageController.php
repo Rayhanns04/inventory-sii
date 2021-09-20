@@ -3,6 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Condition;
+use App\Models\Floor;
+use App\Models\Report;
+use App\Models\ReportCondition;
+use App\Models\Room;
+use App\Models\Stuff;
+use Carbon\Carbon;
 
 class PageController extends Controller
 {
@@ -14,13 +21,33 @@ class PageController extends Controller
      */
     public function dashboardOverview1()
     {
-        return view('pages/dashboard-overview-1', [
-            // Specify the base layout. 
-            // Eg: 'side-menu', 'simple-menu', 'top-menu', 'login'
-            // The default value is 'side-menu'
+        $conditions = Condition::all();
+        $floors = Floor::all();
+        $stuffs = Stuff::all();
+        $rooms =  Room::all();
 
-            // 'layout' => 'side-menu'
-        ]);
+        $report = Report::all()->groupBy(function ($item) {
+            return $item->created_at->format('d F Y');
+        })->where('created_at');
+
+        $test = [];
+        foreach ($conditions as $condition) {
+            foreach ($condition->reportConditions as $reportCondition) {
+                if ($reportCondition->report->created_at->format('d F Y') === now()->format('d F Y')) {
+                    $test[] = $reportCondition;
+                }
+            }
+        };
+
+        $reportConditions = collect($test)->groupBy("condition_id");
+
+        return view('pages/dashboard-overview-1', compact(
+            'conditions',
+            'reportConditions',
+            'floors',
+            'stuffs',
+            'rooms'
+        ));
     }
 
     /**
@@ -32,7 +59,7 @@ class PageController extends Controller
     public function dashboardOverview2()
     {
         return view('pages/dashboard-overview-2', [
-            // Specify the base layout. 
+            // Specify the base layout.
             // Eg: 'side-menu', 'simple-menu', 'top-menu', 'login'
             // The default value is 'side-menu'
 
@@ -215,7 +242,7 @@ class PageController extends Controller
     {
         return view('pages/wizard-layout-2');
     }
-    
+
     /**
      * Show specified view.
      *

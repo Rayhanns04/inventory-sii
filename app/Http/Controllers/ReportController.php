@@ -16,16 +16,14 @@ class ReportController extends Controller
 {
     public function index(Request $request, Room $room)
     {
-        // dd($room->stuffs());
         $roomID = $room->id;
-        $room = $room;
         $stuffs = Stuff::all();
         $conditions = Condition::all();
 
         if ($request->has('search')) {
-            $reports = Report::where('name', 'LIKE', '%' . $request->search . '%')->get();
+            $reports = $room->reports()->where('name', 'LIKE', '%' . $request->search . '%')->get();
         } else {
-            $reports = Report::latest()->get();
+            $reports = $room->reports()->latest()->get();
         }
 
         $reports = $reports->groupBy(function ($item) {
@@ -43,17 +41,18 @@ class ReportController extends Controller
     {
         $TITLE = "Report";
         $ACTION = "/reports/floors";
+        $stuffs = Stuff::all();
         $conditions = Condition::all();
 
+        $reports = Report::all()->groupBy(function ($item) {
+            return $item->created_at->format('d F Y');
+        })[$date];
 
-        $reports = Report::groupBy($date);
-        return view('pages.reports.detail', compact('conditions', 'room', 'reports', 'TITLE', 'ACTION'));
+        return view('pages.reports.detail', compact('conditions', 'room', 'reports', 'TITLE', 'ACTION', 'stuffs'));
     }
 
     public function createReport(Room $room)
     {
-
-        // Custome Variable
         $conditions = Condition::all();
         $TITLE = $room->name . " - Laporan " . Carbon::now()->format('Y/m/d');
         $ACTION = "/reports/floors";
@@ -63,9 +62,6 @@ class ReportController extends Controller
 
     public function store(Request $request, Room $room)
     {
-
-        // dd($request->reports);
-
         foreach ($request->reports as $key => $item) {
             $report = Report::create([
                 'note' => $item['note'],
@@ -81,7 +77,7 @@ class ReportController extends Controller
             }
         }
 
-        return back()->with('status', 'Success create new report!');
+        return redirect('/')->with('status', 'Success create new report!');
     }
 
     public function update(Request $request, $id)

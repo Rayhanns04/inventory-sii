@@ -14,9 +14,9 @@ class StuffController extends Controller
         $rooms = Room::all();
 
         if ($request->has('search')) {
-            $stuffs = Stuff::where('name', 'LIKE', '%' . $request->search . '%')->paginate(50);
+            $stuffs = Stuff::where('name', 'LIKE', '%' . $request->search . '%')->paginate(10000);
         } else {
-            $stuffs = Stuff::paginate(20);
+            $stuffs = Stuff::paginate(10000);
         }
 
         // Custome Variable
