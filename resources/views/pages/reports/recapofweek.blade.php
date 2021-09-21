@@ -24,11 +24,6 @@
                 <i class="w-4 h-4" data-feather="plus"></i>
             </a>
 
-            {{-- Mass Delete --}}
-            <button class="disabled:opacity-50 tooltip btn text-white bg-red-300 shadow-md mr-2"
-                title="Hapus Room yang dipilih">
-                <i class="w-4 h-4" data-feather="trash-2"></i>
-            </button>
             <div class="w-full sm:w-auto mt-3 sm:mt-0 sm:ml-auto md:ml-0 mr-1">
                 <div class="w-56 relative text-gray-700 dark:text-gray-300">
                     <input type="text" class="form-control w-56 box pr-10 placeholder-theme-13" placeholder="Search...">
