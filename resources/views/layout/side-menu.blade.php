@@ -154,7 +154,7 @@
                             <i data-feather="bookmark"></i>
                         </div>
                         <div class="side-menu__title">
-                            Recap perMinggu
+                            Rekap Pekanan
                         </div>
                     </a>
                 </li>

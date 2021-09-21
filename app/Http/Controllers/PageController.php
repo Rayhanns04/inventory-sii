@@ -30,12 +30,14 @@ class PageController extends Controller
             return $item->created_at->format('d F Y');
         })->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()]);
 
-        // ->where('created_at');
-
         $test = [];
         foreach ($conditions as $condition) {
             foreach ($condition->reportConditions as $reportCondition) {
-                if ($reportCondition->report->created_at->format('d F Y') === now()->format('d F Y')) {
+                $itemTime = $reportCondition->report->created_at;
+                if (
+                    $itemTime->format('d F Y') >= now()->startOfWeek()->format('d F Y') &&
+                    $itemTime->format('d F Y') <= now()->endOfWeek()->format('d F Y')
+                ) {
                     $test[] = $reportCondition;
                 }
             }

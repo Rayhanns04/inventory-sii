@@ -131,7 +131,11 @@
                                             <i data-feather="shopping-cart" class="report-box__icon text-theme-10"></i>
                                         </div>
                                         <div class="text-3xl font-bold leading-8 mt-6">
-                                            {{ $reportConditions[$condition->id]->sum('quantity') }}
+                                            @isset($reportConditions[$condition->id])
+                                                {{ $reportConditions[$condition->id]->sum('quantity') }}
+                                            @else
+                                                {{ 0 }}
+                                            @endisset
                                         </div>
                                         <div class="text-base text-gray-600 mt-1">{{ $condition->name }}</div>
                                     </div>
