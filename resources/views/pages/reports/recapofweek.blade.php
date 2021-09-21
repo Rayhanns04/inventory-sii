@@ -18,12 +18,6 @@
                 <i class="w-4 h-4" data-feather="download"></i>
             </a>
 
-            {{-- Plus --}}
-            <a href="javascript:;" class="tooltip btn btn-primary shadow-md mr-2" title="Tambah Recap per Minggu"
-                data-toggle="modal" data-target="#header-footer-modal-preview">
-                <i class="w-4 h-4" data-feather="plus"></i>
-            </a>
-
             <div class="w-full sm:w-auto mt-3 sm:mt-0 sm:ml-auto md:ml-0 mr-1">
                 <div class="w-56 relative text-gray-700 dark:text-gray-300">
                     <input type="text" class="form-control w-56 box pr-10 placeholder-theme-13" placeholder="Search...">
